@@ -1,5 +1,4 @@
 import 'package:cinebox/config/env.dart';
-import 'package:cinebox/data/core/rest_client/backend_rest_client_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -18,7 +17,6 @@ Dio tmdbRestClient(Ref ref) {
   dio.options.headers['Content-Type'] = 'application/json';
   dio.options.headers['Authorization'] = 'Bearer ${Env.theMovieDbApiKey}';
   dio.interceptors.addAll([
-    BackendAuthInterceptor(ref: ref),
     LogInterceptor(
       request: true,
       requestHeader: true,

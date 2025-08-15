@@ -38,6 +38,7 @@ Dio backendRestClient(Ref ref) {
 
   dio.options.headers['Content-Type'] = 'application/json';
   dio.interceptors.addAll([
+    BackendAuthInterceptor(ref: ref),
     LogInterceptor(
       request: true,
       requestHeader: true,
